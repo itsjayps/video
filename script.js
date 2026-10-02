@@ -171,17 +171,51 @@ if (hasMouse && !reducedMotion) {
   root.addEventListener('mouseleave', () => root.classList.remove('cursor-visible'));
 }
 
-// Video cards: the Google Drive player only loads when its poster is clicked, so the page stays fast
-document.querySelectorAll('.video-play').forEach((button) => {
-  button.addEventListener('click', () => {
-    const player = document.createElement('iframe');
-    player.src = `https://drive.google.com/file/d/${button.dataset.driveId}/preview`;
-    player.title = button.dataset.title;
-    player.allow = 'autoplay; fullscreen';
-    player.allowFullscreen = true;
-    button.replaceWith(player);
+// Video cards: play muted while on screen and pause when scrolled away; a click turns the sound on
+const videoPlayers = document.querySelectorAll('.video-player');
+
+videoPlayers.forEach((player) => {
+  player.addEventListener('click', () => {
+    if (!player.muted) return; // sound already on: the built-in controls take over
+
+    // Only one video has sound at a time
+    videoPlayers.forEach((other) => {
+      other.muted = true;
+      other.controls = false;
+      other.parentElement.classList.remove('has-sound');
+    });
+
+    player.muted = false;
+    player.controls = true;
+    player.currentTime = 0;
+    player.parentElement.classList.add('has-sound');
+    player.play();
   });
 });
+
+if (reducedMotion || !('IntersectionObserver' in window)) {
+  // No autoplay: show the normal controls so each video starts on request
+  videoPlayers.forEach((player) => {
+    player.controls = true;
+    player.muted = false;
+    player.parentElement.classList.add('has-sound');
+  });
+} else {
+  const videoObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.play().catch(() => {}); // the browser may refuse; the poster stays and a click still works
+        } else {
+          entry.target.pause();
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  videoPlayers.forEach((player) => videoObserver.observe(player));
+}
 
 // Fade sections in as they scroll into view
 const revealItems = document.querySelectorAll('.reveal');

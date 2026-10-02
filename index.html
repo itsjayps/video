@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
   <!-- Raise the ?v= number whenever styles.css or script.js changes, so browsers load the new file -->
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=3">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -145,18 +145,16 @@
         </div>
 
         <!--
-          EDIT: to add a video, share it on Google Drive as "Anyone with the link", copy one <article> block,
-          put the file ID from the Drive link in data-drive-id, and add a 540 x 960 poster image to images/.
-          The player only loads when the poster is clicked (see script.js).
+          EDIT: to add a video, copy one <article> block, put a web-sized MP4 (720 x 1280, under about 25 MB)
+          in videos/ and a 540 x 960 poster image in images/, then change the file names and text.
+          Videos play muted when scrolled into view; a click turns the sound on (see script.js).
         -->
         <div class="work-grid">
           <article class="project video reveal">
             <div class="project-media">
               <div class="thumb">
-                <button class="video-play" type="button" data-drive-id="1roFsJ9MUfB12DymeVc9omQtctFpQY9Li" data-title="Boss Chicks: Unli Gravy" aria-label="Play Boss Chicks: Unli Gravy">
-                  <img src="images/boss-chicks.jpg" alt="" width="540" height="960" loading="lazy">
-                  <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6.5v11l9-5.5z"/></svg></span>
-                </button>
+                <video class="video-player" src="videos/boss-chicks.mp4" poster="images/boss-chicks.jpg" muted loop playsinline preload="none" aria-label="Boss Chicks: Unli Gravy"></video>
+                <span class="sound-hint" aria-hidden="true">Click for sound</span>
               </div>
             </div>
             <div class="project-meta">
@@ -169,10 +167,7 @@
           <article class="project video reveal">
             <div class="project-media">
               <div class="thumb">
-                <button class="video-play" type="button" data-drive-id="1Iaxalg5Vj9S6ZQ_4BSR2xdePszJqOTo5" data-title="Biyaya’s Bean" aria-label="Play Biyaya’s Bean">
-                  <img src="images/biyayas-bean.jpg" alt="" width="540" height="960" loading="lazy">
-                  <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6.5v11l9-5.5z"/></svg></span>
-                </button>
+                <video class="video-player" src="videos/biyayas-bean.mp4" poster="images/biyayas-bean.jpg" muted loop playsinline preload="none" aria-label="Biyaya’s Bean"></video>
               </div>
             </div>
             <div class="project-meta">
@@ -185,10 +180,8 @@
           <article class="project video reveal">
             <div class="project-media">
               <div class="thumb">
-                <button class="video-play" type="button" data-drive-id="14hKq8MDTPsgS9BmVgGdy1yD5ZpfvQ_7Q" data-title="Man in the Aquarium" aria-label="Play Man in the Aquarium">
-                  <img src="images/man-in-the-aquarium.jpg" alt="" width="540" height="960" loading="lazy">
-                  <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6.5v11l9-5.5z"/></svg></span>
-                </button>
+                <video class="video-player" src="videos/man-in-the-aquarium.mp4" poster="images/man-in-the-aquarium.jpg" muted loop playsinline preload="none" aria-label="Man in the Aquarium"></video>
+                <span class="sound-hint" aria-hidden="true">Click for sound</span>
               </div>
             </div>
             <div class="project-meta">
@@ -201,10 +194,8 @@
           <article class="project video reveal">
             <div class="project-media">
               <div class="thumb">
-                <button class="video-play" type="button" data-drive-id="18nGUJfv-gawuNwlu8f8NPmqopzNpoMIl" data-title="State of the Barangay Address 2026" aria-label="Play State of the Barangay Address 2026">
-                  <img src="images/state-of-the-barangay.jpg" alt="" width="540" height="960" loading="lazy">
-                  <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6.5v11l9-5.5z"/></svg></span>
-                </button>
+                <video class="video-player" src="videos/state-of-the-barangay.mp4" poster="images/state-of-the-barangay.jpg" muted loop playsinline preload="none" aria-label="State of the Barangay Address 2026"></video>
+                <span class="sound-hint" aria-hidden="true">Click for sound</span>
               </div>
             </div>
             <div class="project-meta">
@@ -273,6 +264,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=2"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>
