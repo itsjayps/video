@@ -171,6 +171,18 @@ if (hasMouse && !reducedMotion) {
   root.addEventListener('mouseleave', () => root.classList.remove('cursor-visible'));
 }
 
+// Video cards: the Google Drive player only loads when its poster is clicked, so the page stays fast
+document.querySelectorAll('.video-play').forEach((button) => {
+  button.addEventListener('click', () => {
+    const player = document.createElement('iframe');
+    player.src = `https://drive.google.com/file/d/${button.dataset.driveId}/preview`;
+    player.title = button.dataset.title;
+    player.allow = 'autoplay; fullscreen';
+    player.allowFullscreen = true;
+    button.replaceWith(player);
+  });
+});
+
 // Fade sections in as they scroll into view
 const revealItems = document.querySelectorAll('.reveal');
 

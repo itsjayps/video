@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
   <!-- Raise the ?v= number whenever styles.css or script.js changes, so browsers load the new file -->
-  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="stylesheet" href="styles.css?v=2">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -79,10 +79,10 @@
             </div>
           </li>
           <li>
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="7" r="2.5"/><circle cx="6" cy="17" r="2.5"/><path d="M8 8.5L21 17M8 15.5L21 7"/></svg>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4l1.9 5.1L18 11l-5.1 1.9L11 18l-1.9-5.1L4 11l5.1-1.9zM18.5 3v4M16.5 5h4M19 16v3.5M17.25 17.75h3.5"/></svg>
             <div>
-              <h3>Long-form editing</h3>
-              <p>YouTube videos and interviews cut down to a clean story, with the dead air and filler removed.</p>
+              <h3>AI video production</h3>
+              <p>Concept videos and product films created with AI tools such as Adobe Firefly, then cut into a finished piece.</p>
             </div>
           </li>
           <li>
@@ -145,54 +145,73 @@
         </div>
 
         <!--
-          EDIT: replace each placeholder with a real video.
-          Upload the video to YouTube (unlisted is fine), copy its ID (the part after "v=" in the link),
-          and replace <div class="thumb">...</div> with:
-          <div class="thumb"><iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="Video title" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+          EDIT: to add a video, share it on Google Drive as "Anyone with the link", copy one <article> block,
+          put the file ID from the Drive link in data-drive-id, and add a 540 x 960 poster image to images/.
+          The player only loads when the poster is clicked (see script.js).
         -->
         <div class="work-grid">
           <article class="project video reveal">
             <div class="project-media">
-              <div class="thumb"><span>Video 01</span></div>
+              <div class="thumb">
+                <button class="video-play" type="button" data-drive-id="1roFsJ9MUfB12DymeVc9omQtctFpQY9Li" data-title="Boss Chicks: Unli Gravy" aria-label="Play Boss Chicks: Unli Gravy">
+                  <img src="images/boss-chicks.jpg" alt="" width="540" height="960" loading="lazy">
+                  <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6.5v11l9-5.5z"/></svg></span>
+                </button>
+              </div>
             </div>
             <div class="project-meta">
-              <h3>Video title</h3>
-              <p class="project-type">Short-form</p>
+              <h3>Boss Chicks: Unli Gravy</h3>
+              <p class="project-type">AI food ad</p>
             </div>
-            <p>One or two sentences on who it was for and what you did in the edit.</p>
+            <p>A vertical food ad for Boss Chicks’ unli gravy offer, built with AI-generated visuals.</p>
           </article>
 
           <article class="project video reveal">
             <div class="project-media">
-              <div class="thumb"><span>Video 02</span></div>
+              <div class="thumb">
+                <button class="video-play" type="button" data-drive-id="1Iaxalg5Vj9S6ZQ_4BSR2xdePszJqOTo5" data-title="Biyaya’s Bean" aria-label="Play Biyaya’s Bean">
+                  <img src="images/biyayas-bean.jpg" alt="" width="540" height="960" loading="lazy">
+                  <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6.5v11l9-5.5z"/></svg></span>
+                </button>
+              </div>
             </div>
             <div class="project-meta">
-              <h3>Video title</h3>
-              <p class="project-type">Product ad</p>
+              <h3>Biyaya’s Bean</h3>
+              <p class="project-type">AI product film</p>
             </div>
-            <p>One or two sentences on who it was for and what you did in the edit.</p>
+            <p>A cinematic product film for Biyaya’s Bean Cafe &amp; Restaurant’s coffee, generated with Adobe Firefly.</p>
           </article>
 
           <article class="project video reveal">
             <div class="project-media">
-              <div class="thumb"><span>Video 03</span></div>
+              <div class="thumb">
+                <button class="video-play" type="button" data-drive-id="14hKq8MDTPsgS9BmVgGdy1yD5ZpfvQ_7Q" data-title="Man in the Aquarium" aria-label="Play Man in the Aquarium">
+                  <img src="images/man-in-the-aquarium.jpg" alt="" width="540" height="960" loading="lazy">
+                  <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6.5v11l9-5.5z"/></svg></span>
+                </button>
+              </div>
             </div>
             <div class="project-meta">
-              <h3>Video title</h3>
-              <p class="project-type">Long-form</p>
+              <h3>Man in the Aquarium</h3>
+              <p class="project-type">AI concept video</p>
             </div>
-            <p>One or two sentences on who it was for and what you did in the edit.</p>
+            <p>A short concept piece made with AI-generated video.</p>
           </article>
 
           <article class="project video reveal">
             <div class="project-media">
-              <div class="thumb"><span>Video 04</span></div>
+              <div class="thumb">
+                <button class="video-play" type="button" data-drive-id="18nGUJfv-gawuNwlu8f8NPmqopzNpoMIl" data-title="State of the Barangay Address 2026" aria-label="Play State of the Barangay Address 2026">
+                  <img src="images/state-of-the-barangay.jpg" alt="" width="540" height="960" loading="lazy">
+                  <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6.5v11l9-5.5z"/></svg></span>
+                </button>
+              </div>
             </div>
             <div class="project-meta">
-              <h3>Video title</h3>
-              <p class="project-type">Social content</p>
+              <h3>State of the Barangay Address 2026</h3>
+              <p class="project-type">Event reel</p>
             </div>
-            <p>One or two sentences on who it was for and what you did in the edit.</p>
+            <p>A vertical recap reel of the 2026 State of the Barangay Address.</p>
           </article>
         </div>
       </div>
@@ -254,6 +273,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=1"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>

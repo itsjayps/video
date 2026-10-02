@@ -827,13 +827,60 @@ ol {
   }
 }
 
-/* Video portfolio: widescreen thumbnails that hold an embedded player */
+/* Video portfolio: four vertical videos in a row, each a poster that loads the player when clicked */
 .video .thumb {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 9 / 16;
 }
 
-.video .project-media:hover .thumb {
-  transform: none;
+.work-grid:has(.video) {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px 24px;
+}
+
+.video .project-meta {
+  flex-direction: column;
+  gap: 6px;
+}
+
+.video .project-type {
+  text-align: left;
+}
+
+.video-play {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+}
+
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin: -29px 0 0 -29px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.6);
+  transition: background-color 0.3s ease, scale 0.3s ease;
+}
+
+.play-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--text);
+}
+
+.video-play:hover .play-icon {
+  background: var(--accent-solid);
+  scale: 1.08;
 }
 
 .thumb iframe {
@@ -845,4 +892,16 @@ ol {
 /* The player needs the normal cursor, since the custom dot can't follow the mouse inside it */
 .has-cursor .thumb iframe {
   cursor: auto;
+}
+
+@media (max-width: 1000px) {
+  .work-grid:has(.video) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .work-grid:has(.video) {
+    gap: 40px 16px;
+  }
 }
